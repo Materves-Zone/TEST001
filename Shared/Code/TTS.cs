@@ -31,6 +31,11 @@ public class TTS : MonoBehaviour
     }
     IEnumerator Replay(int ClipsID)
     {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+
         audioSource.PlayOneShot(Clips[ClipsID]);
         yield return new WaitForSeconds(2f);
         audioSource.PlayOneShot(Clips[ClipsID]);
@@ -45,6 +50,10 @@ public class TTS : MonoBehaviour
     }
     IEnumerator ExiReplay()
     {
+        if(audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
 
         audioSource.PlayOneShot(Clips[4]);
         yield return new WaitForSeconds(2f);

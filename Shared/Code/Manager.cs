@@ -83,9 +83,15 @@ public class Manager : MonoBehaviour
     {
         if (FindPillarID < TotalPillars)
         {
+            // pillars
             GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().PillarID = FindPillarID;
+
+            // avatar pillars
+            GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().TTSID = FindPillarID;
+            GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().AvatarTTS();
         }
     }
+
     public void AvatarFindExiObj()
     {
         StartCoroutine(AvatarFindObj());
@@ -93,12 +99,20 @@ public class Manager : MonoBehaviour
     private IEnumerator AvatarFindObj()
     {
         Debug.Log("Part A");
+        // Find Pillars
         GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().IsMove = false;
         GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().IsMovePart = true;
         GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().ExiObjID = 0;
+        // TTS
+        GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().TTSID = 4;
+        GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().AvatarTTS();
         yield return new WaitForSeconds(6f);
+
         Debug.Log("Part B");
         GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().ExiObjID = 1;
+        // TTS
+        GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().TTSID = 4;
+        GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().AvatarTTS();
         yield return new WaitForSeconds(1f);
     }
 

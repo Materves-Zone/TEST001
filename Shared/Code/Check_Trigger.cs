@@ -56,10 +56,15 @@ public class Check_Trigger : MonoBehaviour
         // Avatar
         if (other.tag == "Pillar" && CheckID == other.GetComponent<PillarControl>().PillarID && GameObject.Find("Manager").GetComponent<Manager>().IsAvatarTest)
         {
+            // Find pillars
             CheckID++;
             Debug.Log("Find the Next Pillar");
             GameObject.Find("Manager").GetComponent<Manager>().FindPillarID = CheckID;
             GameObject.Find("Manager").GetComponent<Manager>().AvatarControl();
+
+            // Play avatar's TTS
+            Debug.Log("Play avatar's TTS");
+
         }
         // Show Avatar ExiObj
         if (other.tag == "Pillar" && CheckID == 4 && GameObject.Find("Manager").GetComponent<Manager>().IsAvatarTest)
