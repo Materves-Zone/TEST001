@@ -28,6 +28,9 @@ public class UIControl : MonoBehaviour
         BtnS3 = GameObject.Find("Btn_3").GetComponent<Button>();
 
         BtnReset.onClick.AddListener(UIReset);
+        BtnS1.onClick.AddListener(UIS1);
+        BtnS2.onClick.AddListener(UIS2);
+        BtnS3.onClick.AddListener(UIS3);
     }
 
     private void UIReset()
@@ -36,14 +39,24 @@ public class UIControl : MonoBehaviour
     }
     private void UIS1()
     {
+        Debug.Log("Click S1");
         GameObject.Find("Manager").GetComponent<Manager>().TestFlash();
+        BtnS1.interactable = false;
+        BtnS2.interactable = false;
+        BtnS3.interactable = false;
     }
     private void UIS2()
     {
         GameObject.Find("Manager").GetComponent<Manager>().TestTTS();
+        BtnS1.interactable = false;
+        BtnS2.interactable = false;
+        BtnS3.interactable = false;
     }
     private void UIS3()
     {
         GameObject.Find("Manager").GetComponent<Manager>().TestAvatar();
+        BtnS1.interactable = false;
+        BtnS2.interactable = false;
+        BtnS3.interactable = false;
     }
 }

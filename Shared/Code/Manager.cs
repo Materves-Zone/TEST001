@@ -124,7 +124,7 @@ public class Manager : MonoBehaviour
     }
     private void AvatarTTSInit()
     {
-        GameObject.Find("").GetComponent<AvatarGuider>().AvatarTTS();
+        GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().AvatarTTS();
     }
 
 
@@ -153,18 +153,21 @@ public class Manager : MonoBehaviour
         IsFlashTest = true;
         IsTTSTest = false;
         IsAvatarTest = false;
+        IsStartTest = true;
     }
     public void TestTTS()
     {
         IsFlashTest = false;
         IsTTSTest = true;
         IsAvatarTest = false;
+        IsStartTest = true;
     }
     public void TestAvatar()
     {
         IsFlashTest = false;
         IsTTSTest = false;
         IsAvatarTest = true;
+        IsStartTest = true;
     }
     public void TestReset()
     {
