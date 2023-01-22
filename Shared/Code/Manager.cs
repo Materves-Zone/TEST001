@@ -1,19 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Init();
+        //Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Init();
     }
 
     public GameObject[] Pillars;
@@ -23,43 +23,51 @@ public class Manager : MonoBehaviour
     public bool IsFlashTest;
     public bool IsAvatarTest;
     public bool IsTTSTest;
+    public bool IsStartTest = false;
     public int FindPillarID;
 
     // Initial
     public void Init()
     {
-        TotalPillars = Pillars.Length;
-        if(IsFlashTest)
+        if(IsStartTest)
         {
-            Pillars[0].GetComponent<PillarControl>().IsFlash = true;
-        }
-        else
-        {
-            Pillars[0].GetComponent<PillarControl>().IsFlash = false;
-        }
+            TotalPillars = Pillars.Length;
+            if (IsFlashTest)
+            {
+                Pillars[0].GetComponent<PillarControl>().IsFlash = true;
+            }
+            else
+            {
+                Pillars[0].GetComponent<PillarControl>().IsFlash = false;
+            }
 
-        if(IsAvatarTest)
-        {
-            GameObject.Find("Avatar_Guider").SetActive(true);
-            GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().IsMove = true;
-            GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().IsStartGuide = true;
-            GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().PillarID = 0;
-        }
-        else
-        {
-            GameObject.Find("Avatar_Guider").SetActive(false);
-        }
+            if (IsAvatarTest)
+            {
+                GameObject.Find("Avatar_Guider").SetActive(true);
+                GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().IsMove = true;
+                GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().IsStartGuide = true;
+                GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().PillarID = 0;
+                // TTS
+                AvatarTTSInit();
+            }
+            else
+            {
+                GameObject.Find("Avatar_Guider").SetActive(false);
+            }
 
-        if(IsTTSTest)
-        {
-            GameObject.Find("Avatar_Player").GetComponent<TTS>().TTSRePlay(0);
-        }
-        else
-        {
-            GameObject.Find("Avatar_Player").GetComponent<TTS>().TTSStop();
-        }
+            if (IsTTSTest)
+            {
+                GameObject.Find("Avatar_Player").GetComponent<TTS>().TTSRePlay(0);
+            }
+            else
+            {
+                GameObject.Find("Avatar_Player").GetComponent<TTS>().TTSStop();
+            }
 
-        ExiObj.SetActive(false);
+            ExiObj.SetActive(false);
+
+            IsStartTest = false;
+        }
     }
 
     // Flash Control
@@ -91,7 +99,6 @@ public class Manager : MonoBehaviour
             GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().AvatarTTS();
         }
     }
-
     public void AvatarFindExiObj()
     {
         StartCoroutine(AvatarFindObj());
@@ -115,6 +122,11 @@ public class Manager : MonoBehaviour
         GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().AvatarTTS();
         yield return new WaitForSeconds(1f);
     }
+    private void AvatarTTSInit()
+    {
+        GameObject.Find("").GetComponent<AvatarGuider>().AvatarTTS();
+    }
+
 
     // TTS Control
     public void TTSControl()
@@ -135,4 +147,29 @@ public class Manager : MonoBehaviour
         ExiObj.GetComponent<Animator>().Play("ExiObjFlash");
     }
 
+    // Mode Selection
+    public void TestFlash()
+    {
+        IsFlashTest = true;
+        IsTTSTest = false;
+        IsAvatarTest = false;
+    }
+    public void TestTTS()
+    {
+        IsFlashTest = false;
+        IsTTSTest = true;
+        IsAvatarTest = false;
+    }
+    public void TestAvatar()
+    {
+        IsFlashTest = false;
+        IsTTSTest = false;
+        IsAvatarTest = true;
+    }
+    public void TestReset()
+    {
+        Debug.Log("Reset Testing!");
+        SceneManager.LoadScene("TestEnvironment(MR)", LoadSceneMode.Single);
+    }
+    
 }

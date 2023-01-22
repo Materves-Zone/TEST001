@@ -8,7 +8,7 @@ public class AvatarGuider : MonoBehaviour
     void Start()
     {
         AvatarInit();
-        AvatarTTS();
+        //AvatarTTS();
     }
 
     // Update is called once per frame
