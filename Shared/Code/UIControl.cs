@@ -33,11 +33,12 @@ public class UIControl : MonoBehaviour
         BtnS3.onClick.AddListener(UIS3);
     }
 
-    private void UIReset()
+    // 直接调用这几个公共接口
+    public void UIReset()
     {
         GameObject.Find("Manager").GetComponent<Manager>().TestReset();
     }
-    private void UIS1()
+    public void UIS1()
     {
         Debug.Log("Click S1");
         GameObject.Find("Manager").GetComponent<Manager>().TestFlash();
@@ -45,14 +46,14 @@ public class UIControl : MonoBehaviour
         BtnS2.interactable = false;
         BtnS3.interactable = false;
     }
-    private void UIS2()
+    public void UIS2()
     {
         GameObject.Find("Manager").GetComponent<Manager>().TestTTS();
         BtnS1.interactable = false;
         BtnS2.interactable = false;
         BtnS3.interactable = false;
     }
-    private void UIS3()
+    public void UIS3()
     {
         GameObject.Find("Manager").GetComponent<Manager>().TestAvatar();
         BtnS1.interactable = false;
