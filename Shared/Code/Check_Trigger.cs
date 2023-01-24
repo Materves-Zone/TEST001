@@ -88,6 +88,14 @@ public class Check_Trigger : MonoBehaviour
             GameObject.Find("Manager").GetComponent<Manager>().ExiObj.SetActive(true);
             GameObject.Find("Manager").GetComponent<Manager>().TTSExiControl();
         }
+    
+        //PointerArrow(TS)
+        if(other.tag == "Pillar")
+        {
+            Debug.Log("~~~~");
+            //CheckID++;
+            GameObject.Find("Manager").GetComponent<Manager>().PointerControl(CheckID);
+        }
     }
 
     //private void OnTriggerExit(Collider other)

@@ -127,7 +127,6 @@ public class Manager : MonoBehaviour
         GameObject.Find("Avatar_Guider").GetComponent<AvatarGuider>().AvatarTTS();
     }
 
-
     // TTS Control
     public void TTSControl()
     {
@@ -145,6 +144,13 @@ public class Manager : MonoBehaviour
     public void ExiObjAnimation()
     {
         ExiObj.GetComponent<Animator>().Play("ExiObjFlash");
+    }
+
+    // PointerControl
+    public void PointerControl(int TargetID)
+    {
+        GameObject.Find("ArrowPointerControl").GetComponent<ArrowPointerControl>().PillarsID = TargetID;
+        GameObject.Find("ArrowPointerControl").GetComponent<ArrowPointerControl>().PointUpdate();
     }
 
     // Mode Selection
