@@ -43,8 +43,7 @@ public class Check_Trigger : MonoBehaviour
             CheckID++;
             Debug.Log("Next Flash");
             GameObject.Find("Manager").GetComponent<Manager>().FlashArray(CheckID);
-
-            //this.GetComponent<FPS_ArrowPoint>().PointID = CheckID;
+            GameObject.Find("Manager").GetComponent<Manager>().PointArrowControl(CheckID);
         }
         // Show Flash ExiObj
         if (other.tag == "Pillar" && CheckID == 4 && GameObject.Find("Manager").GetComponent<Manager>().IsFlashTest)
@@ -61,6 +60,7 @@ public class Check_Trigger : MonoBehaviour
             Debug.Log("Find the Next Pillar");
             GameObject.Find("Manager").GetComponent<Manager>().FindPillarID = CheckID;
             GameObject.Find("Manager").GetComponent<Manager>().AvatarControl();
+            GameObject.Find("Manager").GetComponent<Manager>().PointArrowControl(CheckID);
 
             // Play avatar's TTS
             Debug.Log("Play avatar's TTS");
@@ -81,6 +81,7 @@ public class Check_Trigger : MonoBehaviour
             Debug.Log("Play Next TTS");
             GameObject.Find("Manager").GetComponent<Manager>().FindPillarID = CheckID;
             GameObject.Find("Manager").GetComponent<Manager>().TTSControl();
+            GameObject.Find("Manager").GetComponent<Manager>().PointArrowControl(CheckID);
         }
         // TTS ExiObj
         if (other.tag == "Pillar" && CheckID == 4 && GameObject.Find("Manager").GetComponent<Manager>().IsTTSTest)
@@ -88,13 +89,12 @@ public class Check_Trigger : MonoBehaviour
             GameObject.Find("Manager").GetComponent<Manager>().ExiObj.SetActive(true);
             GameObject.Find("Manager").GetComponent<Manager>().TTSExiControl();
         }
-    
-        //PointerArrow(TS)
-        if(other.tag == "Pillar")
+
+        if (other.tag == "Pillar" && CheckID == other.GetComponent<PillarControl>().PillarID)
         {
-            Debug.Log("~~~~");
-            //CheckID++;
-            GameObject.Find("Manager").GetComponent<Manager>().PointerControl(CheckID);
+            Debug.Log("~~~~~");
+            CheckID++;
+            GameObject.Find("Manager").GetComponent<Manager>().PointArrowControl(CheckID);
         }
     }
 

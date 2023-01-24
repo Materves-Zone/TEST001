@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
+    private void Awake()
+    {
+        SysInit();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +24,7 @@ public class Manager : MonoBehaviour
     public GameObject[] Pillars;
     public GameObject ExiObj;
     public GameObject[] ExiObjs;
+    public GameObject[] PointArrows;
     public int TotalPillars;
     public bool IsFlashTest;
     public bool IsAvatarTest;
@@ -26,7 +32,18 @@ public class Manager : MonoBehaviour
     public bool IsStartTest = false;
     public int FindPillarID;
 
-    // Initial
+    // SystemInitial
+    public void SysInit()
+    {
+        Debug.Log("System init!");
+        for (int i = 0; i < PointArrows.Length; i++)
+        {
+            PointArrows[i].SetActive(false);
+            PointArrows[0].SetActive(true);
+        }
+    }
+
+    // TestingInitial
     public void Init()
     {
         if(IsStartTest)
@@ -146,11 +163,17 @@ public class Manager : MonoBehaviour
         ExiObj.GetComponent<Animator>().Play("ExiObjFlash");
     }
 
-    // PointerControl
-    public void PointerControl(int TargetID)
+    // Pointer Arrow Control
+    public void PointArrowControl(int PointerArrowID)
     {
-        GameObject.Find("ArrowPointerControl").GetComponent<ArrowPointerControl>().PillarsID = TargetID;
-        GameObject.Find("ArrowPointerControl").GetComponent<ArrowPointerControl>().PointUpdate();
+        for (int i = 0; i < PointArrows.Length; i++)
+        {
+            PointArrows[i].SetActive(false);
+            if (i == PointerArrowID)
+            {
+                PointArrows[i].SetActive(true);
+            }
+        }
     }
 
     // Mode Selection
