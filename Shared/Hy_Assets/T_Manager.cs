@@ -178,7 +178,7 @@ public class T_Manager : MonoBehaviour
 
             IsTestingTTS = true;
 
-            Co_PointerArrowStart();
+            //Co_PointerArrowStart();
         }
     }
     public void Scene_TTSUpdate(int TTSID)
@@ -215,7 +215,7 @@ public class T_Manager : MonoBehaviour
             _avatarguide.GetComponent<T_AvatarControl>().AvatarMoveStart();
             IsTestingAvatar = true;
 
-            Co_PointerArrowStart();
+            //Co_PointerArrowStart();
         }
     }
     public void Scene_AvatarUpdate(int FindID)

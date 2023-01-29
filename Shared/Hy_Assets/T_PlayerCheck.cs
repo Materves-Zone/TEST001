@@ -42,10 +42,10 @@ public class T_PlayerCheck : MonoBehaviour
         if (other.tag == "Pillar" && CheckID == other.GetComponent<T_FlashControl>().PillarID && tmanager.IsTestingTTS)
         {
             CheckID++;
-            if (CheckID < tmanager._pointsPos.Length)
-            {
-                tmanager.Co_PointerArrowUpdate(CheckID);
-            }
+            //if (CheckID < tmanager._pointsPos.Length)
+            //{
+            //    tmanager.Co_PointerArrowUpdate(CheckID);
+            //}
 
             Debug.Log("pillar :" + CheckID);
             if (CheckID == tmanager._pointsPos.Length)
@@ -61,10 +61,10 @@ public class T_PlayerCheck : MonoBehaviour
         if (other.tag == "Pillar" && CheckID == other.GetComponent<T_FlashControl>().PillarID && tmanager.IsTestingAvatar)
         {
             CheckID++;
-            if (CheckID < tmanager._pointsPos.Length)
-            {
-                tmanager.Co_PointerArrowUpdate(CheckID);
-            }
+            //if (CheckID < tmanager._pointsPos.Length)
+            //{
+            //    tmanager.Co_PointerArrowUpdate(CheckID);
+            //}
 
             Debug.Log("1M");
             if (CheckID == tmanager._pointsPos.Length)
