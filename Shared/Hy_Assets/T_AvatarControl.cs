@@ -28,11 +28,9 @@ public class T_AvatarControl : MonoBehaviour
     public int PillarID;
     public int ExiObjID;
     public int TTSID;
-    public AudioClip[] TTSClips;
-
     public bool IsMove = false;
     public bool IsMovePart = false;
-
+    public AudioClip[] TTSClips;
     public AudioSource avatar_audioSource;
 
     /// <summary>
@@ -53,7 +51,6 @@ public class T_AvatarControl : MonoBehaviour
         Debug.Log("1");
         avatar_audioSource.PlayOneShot(TTSClips[0]);
     }
-
     public void AvatarTTSUpdate(int AvatarTTSID)
     {
         Debug.Log("2");

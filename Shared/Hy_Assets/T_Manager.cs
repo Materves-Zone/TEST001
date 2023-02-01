@@ -48,6 +48,17 @@ public class T_Manager : MonoBehaviour
     public bool IsTestingTTS = false;
     public bool IsTestingAvatar = false;
     public bool IsPointerDisappera = false;
+    public bool IsTesterMode = false; // -- 测试员模式
+    
+    /*
+     * 总共3种场景每个场景2种模式（寻路，探索）
+     */
+    //public bool IsNBFlashPosGuide = false;
+    //public bool IsNBFlashExpGuide = false;
+    //public bool IsNBTTSPosGuide = false;
+    //public bool IsNBTTSExpGuide = false;
+    //public bool IsNBAvatarPosGuide = false;
+    //public bool IsNBAvatarExpGuide = false;
 
     /// <summary>
     /// Main system
@@ -366,6 +377,40 @@ public class T_Manager : MonoBehaviour
     }
 
     /// <summary>
+    /// Tester (Common)
+    /// </summary>
+    public void Co_TesterInit()
+    {
+        IsTesterMode = false;
+    }
+    public void Co_TesterStart()
+    {
+
+    }
+    public void Co_TesterF_ShowMesh(bool IsMeshShow)// -- 测试员模式
+    {
+        if(IsTesterMode)
+        {
+            if(IsMeshShow)
+            {
+                /*
+                 * 显示房间
+                 * 显示柱子
+                 * 开启可拖拽功能
+                 */
+            }
+            else
+            {
+                /*
+                 * 隐藏房间
+                 * 隐藏柱子
+                 * 关闭可拖拽功能
+                 */
+            }
+        }
+    }
+
+    /// <summary>
     /// UI (PC Testing)
     /// </summary>
     public void UI_Init()
@@ -411,6 +456,58 @@ public class T_Manager : MonoBehaviour
             // To do ...
             Scene_AvatarStart();
             IsTestingStart = false;
+        }
+    }
+    public void Btn_TesterMode() // -- 测试员模式
+    {
+        /*
+        0. 第一次点击鼠标
+        1. 进入测试员模式 true
+        2. 显示物体场景
+        3. 可拖拽功能开启
+        4. 点击事件 ID = 1
+        4. 第二次点击鼠标
+        5. 隐藏物体
+        6. 退出测试员模式 fale
+        7. 重置点击事件 ID = 0
+         */
+    }
+
+    /// <summary>
+    /// NB Guide Mode
+    /// </summary>
+    public void NBGuideInit()
+    {
+
+    }
+    public void NBGuideSelect(int TypeID)
+    {
+        if(TypeID==0)
+        {
+            /*
+             * NB 自动部分 IE
+             * NB 互动部分 TimeLine 等方法
+             */
+        }
+        else if (TypeID == 1)
+        {
+
+        }
+        else if (TypeID == 2)
+        {
+
+        }
+        else if (TypeID == 3)
+        {
+
+        }
+        else if (TypeID == 4)
+        {
+
+        }
+        else if (TypeID == 5)
+        {
+
         }
     }
 }
