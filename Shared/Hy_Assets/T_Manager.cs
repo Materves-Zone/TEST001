@@ -485,29 +485,44 @@ public class T_Manager : MonoBehaviour
         if(TypeID==0)
         {
             /*
-             * NB 自动部分 IE
-             * NB 互动部分 TimeLine 等方法
+             * NB 闪烁寻路自动部分 IE
+             * NB 闪烁寻路互动部分 TimeLine 等方法
              */
         }
         else if (TypeID == 1)
         {
-
+              /*
+             * NB 闪烁探索自动部分 IE
+             * NB 闪烁探索互动部分 TimeLine 等方法
+             */
         }
         else if (TypeID == 2)
         {
-
+            /*
+           * NB 语音探索自动部分 IE
+           * NB 语音探索互动部分 TimeLine 等方法
+           */
         }
         else if (TypeID == 3)
         {
-
+            /*
+           * NB 语音探索自动部分 IE
+           * NB 语音探索互动部分 TimeLine 等方法
+           */
         }
         else if (TypeID == 4)
         {
-
+            /*
+           * NB 拟人探索自动部分 IE
+           * NB 拟人探索互动部分 TimeLine 等方法
+           */
         }
         else if (TypeID == 5)
         {
-
+            /*
+           * NB 拟人探索自动部分 IE
+           * NB 拟人探索互动部分 TimeLine 等方法
+           */
         }
     }
 }
