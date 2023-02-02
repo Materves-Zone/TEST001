@@ -33,6 +33,7 @@ public class T_Manager : MonoBehaviour
     public GameObject[] _pointsPos;
     public GameObject[] _pointsArrows;
     public GameObject[] _exiObj;
+    public GameObject[] _flashNbObjs;
     public AudioClip[] _tts;
     public Button[] _btns;
 
@@ -72,8 +73,13 @@ public class T_Manager : MonoBehaviour
         IsTestingAvatar = false;
 
         Scene_FlashInit();
+        Scene_FlashNBPosInit();
+        //Scene_FlashNBExpInit();
+
         Scene_TTSInit();
+
         Scene_AvatarInit();
+
         Co_PointerArrowInit();
         Co_ExihibitorInit();
         Co_StartPosInit();
@@ -94,6 +100,38 @@ public class T_Manager : MonoBehaviour
     /// <summary>
     /// Flash testing environment
     /// </summary>
+    public void Scene_FlashNBPosInit()
+    {
+        for (int i = 0; i < _flashNbObjs.Length; i++)
+        {
+            _flashNbObjs[i].SetActive(false);
+        }
+
+        IsTestingFlash = false;
+    }
+    public void Scene_FlashNBPosStart()
+    {
+        _flashNbObjs[0].SetActive(true);
+        _flashNbObjs[1].SetActive(true);
+
+        IsTestingFlash = true;
+    }
+    public void Scene_FlashNBPosUpdate(int ID)
+    {
+        for (int i = 0; i < _flashNbObjs.Length; i++)
+        {
+            if(i == ID)
+            {
+                _flashNbObjs[i].SetActive(true);
+            }
+        }
+    }
+    public void Scene_FlashNBReset()
+    {
+        Scene_FlashNBPosInit();
+        Scene_FlashNBPosStart();
+    }
+
     public void Scene_FlashInit()
     {
         toggle.interactable = true;
@@ -107,7 +145,7 @@ public class T_Manager : MonoBehaviour
     }
     public void Scene_FlashTestingStart()
     {
-        if(IsTestingStart)
+        if (IsTestingFlash)
         {
             IsPointerDisappera = toggle.isOn;
             toggle.interactable = false;
@@ -138,11 +176,10 @@ public class T_Manager : MonoBehaviour
                 }
             }
 
-            IsTestingFlash = true;
+            IsTestingStart = true;
 
             Co_PointerArrowStart();
-        }
-        
+        }   
     }
     public void Scene_FlashTestingUpdate(int PosID)
     {
@@ -165,6 +202,16 @@ public class T_Manager : MonoBehaviour
             }
         }
     }
+
+    public void Scene_FlashNBExpInit()
+    {
+
+    }
+    public void Scene_FlashNBExpStart()
+    {
+
+    }
+
 
     /// <summary>
     /// TTS testing environment
@@ -432,10 +479,11 @@ public class T_Manager : MonoBehaviour
         {
             Debug.Log("Flash");
             // To do ...
-            Scene_FlashTestingStart();
+            //Scene_FlashTestingStart();
+            Scene_FlashNBPosStart();
             IsTestingStart = false;
         }
-    }
+    } // ++ 改 20230202
     public void Btn_TestingTTS()
     {
 
