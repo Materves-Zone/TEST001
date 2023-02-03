@@ -102,17 +102,17 @@ public class T_Manager : MonoBehaviour
     /// </summary>
     public void Scene_FlashNBPosInit()
     {
+        IsTestingFlash = false;
         for (int i = 0; i < _flashNbObjs.Length; i++)
         {
             _flashNbObjs[i].SetActive(false);
         }
-
-        IsTestingFlash = false;
     }
     public void Scene_FlashNBPosStart()
     {
         _flashNbObjs[0].SetActive(true);
         _flashNbObjs[1].SetActive(true);
+        _flashNbObjs[5].SetActive(true);
 
         IsTestingFlash = true;
     }
@@ -145,6 +145,8 @@ public class T_Manager : MonoBehaviour
     }
     public void Scene_FlashTestingStart()
     {
+        Scene_FlashNBPosInit();
+        IsTestingFlash = true;
         if (IsTestingFlash)
         {
             IsPointerDisappera = toggle.isOn;
