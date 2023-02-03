@@ -5654,8 +5654,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ae7dd11ec4692428737bc0cd7869d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HideMenu: []
-  ShowMenu: []
+  HideMenu:
+  - {fileID: 600725938}
+  - {fileID: 14178406}
+  - {fileID: 1265740826}
+  - {fileID: 794076889}
+  - {fileID: 723743181}
+  - {fileID: 578968966}
+  - {fileID: 1805562969}
+  - {fileID: 387398052}
+  ShowMenu:
+  - {fileID: 1945050716}
+  - {fileID: 843046561}
+  - {fileID: 1866903329}
+  - {fileID: 2040014983}
 --- !u!1 &597948672
 GameObject:
   m_ObjectHideFlags: 0
