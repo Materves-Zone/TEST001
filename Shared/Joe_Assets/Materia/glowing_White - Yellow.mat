@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Yellow
+  m_Name: glowing_White - Yellow
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
   m_ShaderKeywords: _DIRECTIONAL_LIGHT _DISABLE_ALBEDO_MAP _EMISSION _HOVER_LIGHT
     _REFLECTIONS _SPECULAR_HIGHLIGHTS
@@ -115,6 +115,7 @@ Material:
     - _IndependentCorners: 0
     - _InnerGlow: 0
     - _InnerGlowPower: 4
+    - _InstancedColor: 0
     - _Iridescence: 0
     - _IridescenceAngle: -0.78
     - _IridescenceIntensity: 0.5
@@ -160,9 +161,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _ClippingBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
-    - _Color: {r: 0.9866247, g: 1, b: 0, a: 1}
-    - _EmissionColor: {r: 0.9716981, g: 0.9382629, b: 0, a: 1}
-    - _EmissiveColor: {r: 0.49056602, g: 0.4727632, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.9929693, b: 0, a: 1}
+    - _EmissionColor: {r: 0.031004902, g: 0.03125, b: 0, a: 1}
+    - _EmissiveColor: {r: 0.031004902, g: 0.03125, b: 0, a: 1}
     - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}
     - _EnvironmentColorY: {r: 0, g: 1, b: 0, a: 1}
     - _EnvironmentColorZ: {r: 0, g: 0, b: 1, a: 1}
