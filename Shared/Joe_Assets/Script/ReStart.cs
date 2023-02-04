@@ -8,8 +8,6 @@ public class ReStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Hide_Menu();
-        Show_Menu();
 
     }
 
