@@ -2,68 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class T_FlashTesting : MonoBehaviour
+public class T_CommonTesting : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        FlashPosNbInit();
-        FlashTestingPosInit();
-        FlashExpNbInit();
-        FlashTestingExpInit();
+        TTSPosNbInit();
+        TTSTestingPosInit();
+        TTSExpNbInit();
+        TTSTestingExpInit();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public T_UserCheck _UserCheck;
     public T_ArrowPointer _ArrowPointer;
-    public GameObject[] FlashPosNbs;
-    public GameObject[] FlashExpNbs;
+    public GameObject[] PosNbs;
+    public GameObject[] ExpNbs;
     public GameObject[] Pos;
     public GameObject[] ExpObjs;
     public bool IsOnlyShow = false;
-    public bool IsFlashTasting = false;
+    public bool IsTTSTasting = false;
 
-    // flash nb guide part
-    public void FlashPosNbInit()
+    // tts nb guide part
+    public void TTSPosNbInit()
     {
-        IsFlashTasting = false;
-        FlashPosNbs[0].SetActive(false);
+        IsTTSTasting = false;
+        PosNbs[0].SetActive(false);
     }
-    public void FlashPosNbStart()
+    public void TTSPosNbStart()
     {
-        IsFlashTasting = true;
-        FlashPosNbs[0].SetActive(true);
-        FlashPosNbs[1].SetActive(true);
-        FlashPosNbs[2].SetActive(true);
+        IsTTSTasting = true;
+        PosNbs[0].SetActive(true);
+        PosNbs[1].SetActive(true);
+        PosNbs[2].SetActive(true);
 
     }
-    public void FlashPosNbUpdate(int id, bool show)
+    public void TTSPosNbUpdate(int id, bool show)
     {
-        if(show)
+        if (show)
         {
-            FlashPosNbs[id].SetActive(true);
+            PosNbs[id].SetActive(true);
         }
         else
         {
-            FlashPosNbs[id].SetActive(false);
+            PosNbs[id].SetActive(false);
         }
     }
-    public void FlashPosNbReset()
+    public void TTSPosNbReset()
     {
-        FlashPosNbInit();
-        FlashPosNbs[8].GetComponent<ReStart>().Show_Menu();
-        FlashPosNbs[8].GetComponent<ReStart>().Hide_Menu();
+        TTSPosNbInit();
+        PosNbs[8].GetComponent<ReStart>().Show_Menu();
+        PosNbs[8].GetComponent<ReStart>().Hide_Menu();
     }
 
-    // flash testing part
-    public void FlashTestingPosInit()
+    // tts testing part
+    public void TTSTestingPosInit()
     {
-        IsFlashTasting = false;
+        IsTTSTasting = false;
         for (int i = 0; i < Pos.Length; i++)
         {
             Pos[i].GetComponent<T_FlashControl>().IsFlash = false;
@@ -71,22 +71,22 @@ public class T_FlashTesting : MonoBehaviour
         }
         _ArrowPointer.ArrowpointersInit();
     }
-    public void FlashTestingPosStart()
+    public void TTSTestingPosStart()
     {
         Debug.Log("flash testing");
-        
-        FlashPosNbInit();
+
+        TTSPosNbInit();
 
         _UserCheck.CheckID = 0;
         if (IsOnlyShow)
         {
-            IsFlashTasting = true;
+            IsTTSTasting = true;
             Pos[0].SetActive(true);
             Pos[0].GetComponent<T_FlashControl>().IsFlash = true;
         }
         else
         {
-            IsFlashTasting = true;
+            IsTTSTasting = true;
             for (int i = 0; i < Pos.Length; i++)
             {
                 Pos[i].SetActive(true);
@@ -96,14 +96,14 @@ public class T_FlashTesting : MonoBehaviour
 
         ArrowpointersControl(0, true);
     }
-    public void FlashTestingPosUpdate(int id)
+    public void TTSTestingPosUpdate(int id)
     {
-        if(IsOnlyShow)
+        if (IsOnlyShow)
         {
             for (int i = 0; i < Pos.Length; i++)
             {
                 Pos[i].SetActive(false);
-                if (i==id)
+                if (i == id)
                 {
                     Pos[i].SetActive(true);
                     Pos[i].GetComponent<T_FlashControl>().IsFlash = true;
@@ -123,71 +123,71 @@ public class T_FlashTesting : MonoBehaviour
         }
         _ArrowPointer.ArrowpointersUpdate(id);
     }
-    public void FlashTestingPosReset()
+    public void TTSTestingPosReset()
     {
-        FlashTestingPosInit();
+        TTSTestingPosInit();
         _UserCheck.CheckID = 0;
     }
 
-    // flash nb exp part
-    public void FlashExpNbInit()
+    // tts nb exp part
+    public void TTSExpNbInit()
     {
-        IsFlashTasting = false;
-        FlashExpNbs[0].SetActive(false);
+        IsTTSTasting = false;
+        ExpNbs[0].SetActive(false);
     }
-    public void FlashExpNbStart()
+    public void TTSExpNbStart()
     {
-        IsFlashTasting = true;
-        FlashExpNbs[0].SetActive(true);
-        FlashExpNbs[1].SetActive(true);
-        FlashExpNbs[2].SetActive(true);
-        FlashExpNbs[3].SetActive(false);
+        IsTTSTasting = true;
+        ExpNbs[0].SetActive(true);
+        ExpNbs[1].SetActive(true);
+        ExpNbs[2].SetActive(true);
+        ExpNbs[3].SetActive(false);
     }
-    public void FlashExpNbUpdate(int id, bool show)
+    public void TTSExpNbUpdate(int id, bool show)
     {
         if (show)
         {
-            FlashExpNbs[id].SetActive(true);
+            ExpNbs[id].SetActive(true);
         }
         else
         {
-            FlashExpNbs[id].SetActive(false);
+            ExpNbs[id].SetActive(false);
         }
     }
-    public void FlashExpNbReset()
+    public void TTSExpNbReset()
     {
-        FlashExpNbInit();
-        FlashExpNbs[8].GetComponent<ReStart>().Show_Menu();
-        FlashExpNbs[8].GetComponent<ReStart>().Hide_Menu();
-        FlashExpNbStart();
+        TTSExpNbInit();
+        ExpNbs[8].GetComponent<ReStart>().Show_Menu();
+        ExpNbs[8].GetComponent<ReStart>().Hide_Menu();
+        TTSExpNbStart();
     }
 
-    // flash nb testing part
-    public void FlashTestingExpInit()
+    // tts nb testing part
+    public void TTSTestingExpInit()
     {
-        IsFlashTasting = false;
+        IsTTSTasting = false;
         for (int i = 0; i < ExpObjs.Length; i++)
         {
             ExpObjs[i].GetComponent<T_FlashControl>().IsFlash = false;
             ExpObjs[i].SetActive(false);
         }
     }
-    public void FlashTestingExpStart()
+    public void TTSTestingExpStart()
     {
         for (int i = 0; i < ExpObjs.Length; i++)
         {
-            IsFlashTasting = true;
+            IsTTSTasting = true;
             ExpObjs[i].SetActive(true);
-            if (i == 0) 
+            if (i == 0)
             {
                 ExpObjs[i].GetComponent<T_FlashControl>().IsFlash = true;
             }
         }
-        FlashExpNbInit();
-        IsFlashTasting = true;
+        TTSExpNbInit();
+        IsTTSTasting = true;
         ArrowpointersControl(4, true);
     }
-    public void FlashTestingExpUpdate(int id)
+    public void TTSTestingExpUpdate(int id)
     {
         for (int i = 0; i < ExpObjs.Length; i++)
         {
@@ -198,16 +198,16 @@ public class T_FlashTesting : MonoBehaviour
             }
         }
     }
-    public void FlashTestingExpReset()
+    public void TTSTestingExpReset()
     {
-        FlashTestingExpInit();
+        TTSTestingExpInit();
         _UserCheck.CheckID = 0;
     }
 
     // other
     public void ArrowpointersControl(int id, bool show)
     {
-        if(show)
+        if (show)
         {
             _ArrowPointer._Arrowpointers[id].SetActive(true);
         }

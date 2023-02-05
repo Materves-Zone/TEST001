@@ -17,6 +17,7 @@ public class T_UserCheck : MonoBehaviour
     }
 
     public T_FlashTesting t_FlashTesting;
+    public T_TTSTesting t_TTSTesting;
     public int CheckID;
 
     private void UserCheckInit()
@@ -37,8 +38,9 @@ public class T_UserCheck : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        // Flash Testing
         // 1.flash nb pos part
-        if(other.name == "InsideCircle" && t_FlashTesting.IsFlashTasting)
+        if(other.name == "FlashPosInsideCircle" && t_FlashTesting.IsFlashTasting)
         {
             /*
              * 1.enter the start circle to trigger the nb part
@@ -68,9 +70,69 @@ public class T_UserCheck : MonoBehaviour
                 t_FlashTesting.FlashTestingPosUpdate(999);
                 CheckID = 999;
                 // start to nb exp guide part
+                t_FlashTesting.FlashExpNbStart();
             }
         }
         // 3.flash nb exp part
+        if(other.name == "FlashExpInsideCircle" && t_FlashTesting.IsFlashTasting)
+        {
+            Debug.Log("start exp pos guide");
+            t_FlashTesting.FlashExpNbUpdate(3, true);
+            t_FlashTesting.FlashExpNbUpdate(4, true);
+        }
+        if (other.name == "Object" && t_FlashTesting.IsFlashTasting)         
+        {
+            Debug.Log("restart or next part");
+            t_FlashTesting.FlashExpNbUpdate(5, true);
+            t_FlashTesting.FlashExpNbUpdate(6, false);
+            t_FlashTesting.FlashExpNbUpdate(7, false);
+        }
         // 4.flash testing exp part
+        if (other.tag == "Exp" && t_FlashTesting.IsFlashTasting)
+        {
+            if (other.name == "PartA")
+            {
+                t_FlashTesting.FlashTestingExpUpdate(1);
+                t_FlashTesting.ArrowpointersControl(4, false);
+                t_FlashTesting.ArrowpointersControl(5, true);
+            }
+            else if (other.name == "PartB")
+            {
+                t_FlashTesting.FlashTestingExpUpdate(0);
+                t_FlashTesting.ArrowpointersControl(4, true);
+                t_FlashTesting.ArrowpointersControl(5, false);
+                Debug.Log("flash testing is finishing!");
+            }
+        }
+
+        // TTS Testing
+        // 1.tts nb pos part
+        if (other.name == "TTSPosInsideCircle" && t_TTSTesting.IsTTSTasting)
+        {
+
+        }
+        if (other.name == "TTSNbPos" && t_TTSTesting.IsTTSTasting)
+        {
+
+        }
+        // 2.tts testing part
+        if (other.tag == "Pos" && t_TTSTesting.IsTTSTasting)
+        {
+            if (CheckID == other.GetComponent<T_FlashControl>().PillarID && CheckID < t_TTSTesting.Pos.Length - 1)
+            {
+                CheckID++;
+                t_TTSTesting.TTSTestingPosUpdate(CheckID);
+            }
+            if (CheckID == other.GetComponent<T_FlashControl>().PillarID && CheckID == t_TTSTesting.Pos.Length - 1)
+            {
+                Debug.Log("testing flash successfully!");
+                t_TTSTesting.TTSTestingPosUpdate(999);
+                CheckID = 999;
+                // start to nb exp guide part
+                t_TTSTesting.TTSExpNbStart();
+            }
+        }
+        // 3.tts nb exp part
+        // 4.tts testing part
     }
 }
