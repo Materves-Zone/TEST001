@@ -47,14 +47,17 @@ public class T_UserCheck : MonoBehaviour
              * 2.nb part start()
              */
             Debug.Log("start nb pos guide");
+            t_FlashTesting.FlashPosNbUpdate(2, false);
             t_FlashTesting.FlashPosNbUpdate(3, true);
             t_FlashTesting.FlashPosNbUpdate(4, true);
         }
         if(other.name == "FlashNbPos" && t_FlashTesting.IsFlashTasting)
         {
-            t_FlashTesting.FlashPosNbUpdate(5, true);
+            t_FlashTesting.FlashPosNbUpdate(4, false);
+            t_FlashTesting.FlashPosNbUpdate(5,  true);
             t_FlashTesting.FlashPosNbUpdate(6, false);
             t_FlashTesting.FlashPosNbUpdate(7, false);
+            t_FlashTesting.FlashPosNbUpdate(9, false);
         }
         // 2.flash testing pos part
         if(other.tag == "Pos" && t_FlashTesting.IsFlashTasting)
@@ -77,6 +80,7 @@ public class T_UserCheck : MonoBehaviour
         if(other.name == "FlashExpInsideCircle" && t_FlashTesting.IsFlashTasting)
         {
             Debug.Log("start exp pos guide");
+            t_FlashTesting.FlashExpNbUpdate(2, false);
             t_FlashTesting.FlashExpNbUpdate(3, true);
             t_FlashTesting.FlashExpNbUpdate(4, true);
         }
@@ -86,6 +90,7 @@ public class T_UserCheck : MonoBehaviour
             t_FlashTesting.FlashExpNbUpdate(5, true);
             t_FlashTesting.FlashExpNbUpdate(6, false);
             t_FlashTesting.FlashExpNbUpdate(7, false);
+            t_FlashTesting.FlashExpNbUpdate(9, false);
         }
         // 4.flash testing exp part
         if (other.tag == "Exp" && t_FlashTesting.IsFlashTasting)

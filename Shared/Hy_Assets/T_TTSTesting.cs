@@ -57,6 +57,7 @@ public class T_TTSTesting : MonoBehaviour
     }
     public void TTSPosNbReset()
     {
+        Debug.Log("TTSPosNbReset");
         TTSPosNbInit();
         PosNbs[8].GetComponent<ReStart>().Show_Menu();
         PosNbs[8].GetComponent<ReStart>().Hide_Menu();
