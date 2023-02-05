@@ -20,14 +20,15 @@ public class T_FlashTesting : MonoBehaviour
     }
 
     public T_UserCheck _UserCheck;
-
     public GameObject[] FlashPosNbs;
     public GameObject[] FlashExpNbs;
     public GameObject[] Pos;
+    public GameObject[] ExpObjs;
     public GameObject[] ArrowPointers;
     public bool IsOnlyShow = false;
     public bool IsFlashTasting = false;
 
+    // flash nb guide part
     public void FlashPosNbInit()
     {
         IsFlashTasting = false;
@@ -59,6 +60,7 @@ public class T_FlashTesting : MonoBehaviour
         FlashPosNbs[8].GetComponent<ReStart>().Hide_Menu();
     }
 
+    // flash testing part
     public void FlashTestingPosInit()
     {
         IsFlashTasting = false;
@@ -125,37 +127,77 @@ public class T_FlashTesting : MonoBehaviour
         _UserCheck.CheckID = 0;
     }
 
+    // flash nb exp part
     public void FlashExpNbInit()
     {
-
+        IsFlashTasting = false;
+        FlashExpNbs[0].SetActive(false);
     }
     public void FlashExpNbStart()
     {
-
+        IsFlashTasting = true;
+        FlashExpNbs[0].SetActive(true);
+        FlashExpNbs[1].SetActive(true);
+        FlashExpNbs[2].SetActive(true);
+        FlashExpNbs[3].SetActive(false);
     }
-    public void FlashExpNbUpdate()
+    public void FlashExpNbUpdate(int id, bool show)
     {
-
+        if (show)
+        {
+            FlashExpNbs[id].SetActive(true);
+        }
+        else
+        {
+            FlashExpNbs[id].SetActive(false);
+        }
     }
     public void FlashExpNbReset()
     {
-
+        FlashExpNbInit();
+        FlashExpNbs[8].GetComponent<ReStart>().Show_Menu();
+        FlashExpNbs[8].GetComponent<ReStart>().Hide_Menu();
+        FlashExpNbStart();
     }
 
+    // flash nb testing part
     public void FlashTestingExpInit()
     {
-
+        IsFlashTasting = false;
+        for (int i = 0; i < ExpObjs.Length; i++)
+        {
+            ExpObjs[i].GetComponent<T_FlashControl>().IsFlash = false;
+            ExpObjs[i].SetActive(false);
+        }
     }
     public void FlashTestingExpStart()
     {
-
+        for (int i = 0; i < ExpObjs.Length; i++)
+        {
+            IsFlashTasting = true;
+            ExpObjs[i].SetActive(true);
+            if (i == 0) 
+            {
+                ExpObjs[i].GetComponent<T_FlashControl>().IsFlash = true;
+            }
+        }
+        FlashExpNbInit();
+        IsFlashTasting = true;
     }
-    public void FlashTestingExpUpdate()
+    public void FlashTestingExpUpdate(int id)
     {
-
+        for (int i = 0; i < ExpObjs.Length; i++)
+        {
+            ExpObjs[i].GetComponent<T_FlashControl>().IsFlash = false;
+            if (i == id)
+            {
+                ExpObjs[i].GetComponent<T_FlashControl>().IsFlash = true;
+            }
+        }
     }
     public void FlashTestingExpReset()
     {
-
+        FlashTestingExpInit();
+        _UserCheck.CheckID = 0;
     }
 }

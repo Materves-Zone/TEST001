@@ -38,7 +38,7 @@ public class T_UserCheck : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // 1.flash nb pos part
-        if(other.name == "InsideCircle" && t_FlashTesting.IsFlashTasting)
+        if(other.name == "FlashPosInsideCircle" && t_FlashTesting.IsFlashTasting)
         {
             /*
              * 1.enter the start circle to trigger the nb part
@@ -68,9 +68,35 @@ public class T_UserCheck : MonoBehaviour
                 t_FlashTesting.FlashTestingPosUpdate(999);
                 CheckID = 999;
                 // start to nb exp guide part
+                t_FlashTesting.FlashExpNbStart();
             }
         }
         // 3.flash nb exp part
+        if(other.name == "FlashExpInsideCircle" && t_FlashTesting.IsFlashTasting)
+        {
+            Debug.Log("start exp pos guide");
+            t_FlashTesting.FlashExpNbUpdate(3, true);
+            t_FlashTesting.FlashExpNbUpdate(4, true);
+        }
+        if (other.name == "Object" && t_FlashTesting.IsFlashTasting)         
+        {
+            Debug.Log("restart or next part");
+            t_FlashTesting.FlashExpNbUpdate(5, true);
+            t_FlashTesting.FlashExpNbUpdate(6, false);
+            t_FlashTesting.FlashExpNbUpdate(7, false);
+        }
         // 4.flash testing exp part
+        if (other.tag == "Exp" && t_FlashTesting.IsFlashTasting)
+        {
+            if (other.name == "PartA")
+            {
+                t_FlashTesting.FlashTestingExpUpdate(1);
+            }
+            else if (other.name == "PartB")
+            {
+                t_FlashTesting.FlashTestingExpUpdate(0);
+                Debug.Log("flash testing is finishing!");
+            }
+        }
     }
 }
