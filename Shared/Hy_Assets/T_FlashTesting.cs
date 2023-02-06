@@ -135,13 +135,26 @@ public class T_FlashTesting : MonoBehaviour
         IsFlashTasting = false;
         FlashExpNbs[0].SetActive(false);
     }
-    public void FlashExpNbStart()
+    public void FlashExpNbStart(int id)
     {
         IsFlashTasting = true;
-        FlashExpNbs[0].SetActive(true);
-        FlashExpNbs[1].SetActive(true);
-        FlashExpNbs[2].SetActive(true);
-        FlashExpNbs[3].SetActive(false);
+        if (id==0)
+        {
+            FlashExpNbs[0].SetActive(true);
+            FlashExpNbs[1].SetActive(false);
+            FlashExpNbs[2].SetActive(false);
+            FlashExpNbs[3].SetActive(false);
+            FlashExpNbs[10].SetActive(true);
+        }
+        else if(id == 1)
+        {
+            FlashExpNbs[0].SetActive(true);
+            FlashExpNbs[1].SetActive(true);
+            FlashExpNbs[2].SetActive(true);
+            FlashExpNbs[3].SetActive(false);
+            FlashExpNbs[10].SetActive(false);
+        }
+
     }
     public void FlashExpNbUpdate(int id, bool show)
     {
@@ -159,7 +172,7 @@ public class T_FlashTesting : MonoBehaviour
         FlashExpNbInit();
         FlashExpNbs[8].GetComponent<ReStart>().Show_Menu();
         FlashExpNbs[8].GetComponent<ReStart>().Hide_Menu();
-        FlashExpNbStart();
+        FlashExpNbStart(1);
     }
 
     // flash nb testing part

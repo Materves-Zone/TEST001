@@ -73,7 +73,7 @@ public class T_UserCheck : MonoBehaviour
                 t_FlashTesting.FlashTestingPosUpdate(999);
                 CheckID = 999;
                 // start to nb exp guide part
-                t_FlashTesting.FlashExpNbStart();
+                t_FlashTesting.FlashExpNbStart(0);
             }
         }
         // 3.flash nb exp part
