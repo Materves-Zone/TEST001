@@ -123,13 +123,26 @@ public class T_TTSTesting : MonoBehaviour
         IsTTSTasting = false;
         ExpNbs[0].SetActive(false);
     }
-    public void TTSExpNbStart()
+    public void TTSExpNbStart(int id)
     {
+        if (id == 0)
+        {
+            ExpNbs[0].SetActive(true);
+            ExpNbs[10].SetActive(true);
+        }
+        else if(id == 1)
+        {
+            ExpNbs[0].SetActive(true);
+            ExpNbs[1].SetActive(true);
+            ExpNbs[2].SetActive(true);
+            ExpNbs[3].SetActive(false);
+            ExpNbs[10].SetActive(false);
+
+            //TTSTestingPosInit();
+        }
+
         IsTTSTasting = true;
-        ExpNbs[0].SetActive(true);
-        ExpNbs[1].SetActive(true);
-        ExpNbs[2].SetActive(true);
-        ExpNbs[3].SetActive(false);
+        _ArrowPointer.ArrowpointersInit();
     }
     public void TTSExpNbUpdate(int id, bool show)
     {
@@ -147,7 +160,7 @@ public class T_TTSTesting : MonoBehaviour
         TTSExpNbInit();
         ExpNbs[8].GetComponent<ReStart>().Show_Menu();
         ExpNbs[8].GetComponent<ReStart>().Hide_Menu();
-        TTSExpNbStart();
+        TTSExpNbStart(1);
     }
 
     // tts nb testing part
@@ -168,7 +181,7 @@ public class T_TTSTesting : MonoBehaviour
         }
         TTSExpNbInit();
         IsTTSTasting = true;
-        TTSTestingPosUpdate(1); // Testing as 1 but real not -
+        TTSTestingPosUpdate(4); // Testing as 1 but real not
         ArrowpointersControl(4, true);
     }
     public void TTSTestingExpUpdate(int id)
