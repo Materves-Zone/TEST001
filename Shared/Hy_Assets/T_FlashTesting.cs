@@ -58,6 +58,7 @@ public class T_FlashTesting : MonoBehaviour
         FlashPosNbInit();
         FlashPosNbs[8].GetComponent<ReStart>().Show_Menu();
         FlashPosNbs[8].GetComponent<ReStart>().Hide_Menu();
+        FlashPosNbStart();
     }
 
     // flash testing part

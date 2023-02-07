@@ -112,13 +112,20 @@ public class T_UserCheck : MonoBehaviour
 
         // TTS Testing
         // 1.tts nb pos part
-        if (other.name == "TTSPosInsideCircle" && t_TTSTesting.IsTTSTasting)
+        if (other.name == "StandArea" && t_TTSTesting.IsTTSTasting)
         {
-
+            Debug.Log("start nb pos guide");
+            t_TTSTesting.TTSPosNbUpdate(2, false);
+            t_TTSTesting.TTSPosNbUpdate(3, true);
+            t_TTSTesting.TTSPosNbUpdate(4, true);
         }
-        if (other.name == "TTSNbPos" && t_TTSTesting.IsTTSTasting)
+        if (other.name == "Apple_Pic" && t_TTSTesting.IsTTSTasting)
         {
-
+            t_TTSTesting.TTSPosNbUpdate(4, false);
+            t_TTSTesting.TTSPosNbUpdate(5, true);
+            t_TTSTesting.TTSPosNbUpdate(6, false);
+            t_TTSTesting.TTSPosNbUpdate(7, false);
+            t_TTSTesting.TTSPosNbUpdate(9, false);
         }
         // 2.tts testing part
         if (other.tag == "Pos" && t_TTSTesting.IsTTSTasting)

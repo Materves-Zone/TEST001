@@ -36,12 +36,15 @@ public class T_TTSTesting : MonoBehaviour
         IsTTSTasting = false;
         PosNbs[0].SetActive(false);
     }
-    public void TTSPosNbStart()
+    public void TTSPosNbStart(int id)
     {
         IsTTSTasting = true;
-        PosNbs[0].SetActive(true);
-        PosNbs[1].SetActive(true);
-        PosNbs[2].SetActive(true);
+        if (id == 0)
+        {
+            PosNbs[0].SetActive(true);
+            PosNbs[1].SetActive(true);
+            PosNbs[2].SetActive(true);
+        }
 
     }
     public void TTSPosNbUpdate(int id, bool show)
@@ -61,6 +64,8 @@ public class T_TTSTesting : MonoBehaviour
         TTSPosNbInit();
         PosNbs[8].GetComponent<ReStart>().Show_Menu();
         PosNbs[8].GetComponent<ReStart>().Hide_Menu();
+        TTSPosNbStart(0);
+        PosNbs[3].SetActive(false);
     }
 
     // tts testing part
@@ -69,7 +74,7 @@ public class T_TTSTesting : MonoBehaviour
         IsTTSTasting = false;
         for (int i = 0; i < Pos.Length; i++)
         {
-            Pos[i].GetComponent<MeshRenderer>().enabled = false;
+            Pos[i].GetComponent<MeshRenderer>().enabled = true;
             Pos[i].SetActive(false);
         }
         _ArrowPointer.ArrowpointersInit();
@@ -82,17 +87,29 @@ public class T_TTSTesting : MonoBehaviour
         TTSPosNbInit();
         IsTTSTasting = true;
         _UserCheck.CheckID = 0;
+
+        for (int i = 0; i < Pos.Length; i++)
+        {
+            Pos[i].GetComponent<MeshRenderer>().enabled = true;
+            Pos[i].SetActive(true);
+        }
+
         TTSTestingPosUpdate(0);
 
         ArrowpointersControl(0, true);
     }
     public void TTSTestingPosUpdate(int id)
     {
-        if(_AudioSource.isPlaying == true)
+        if(id < TTSClips.Length)
         {
-            _AudioSource.Stop();
+            if (_AudioSource.isPlaying == true)
+            {
+                _AudioSource.Stop();
+            }
+            _AudioSource.PlayOneShot(TTSClips[id]);
+
+            ArrowpointersControl(id, true);
         }
-        _AudioSource.PlayOneShot(TTSClips[id]);
     }
     public void TTSTestingPosReset()
     {
@@ -167,6 +184,11 @@ public class T_TTSTesting : MonoBehaviour
     // other
     public void ArrowpointersControl(int id, bool show)
     {
+        for (int i = 0; i < _ArrowPointer._Arrowpointers.Length; i++)
+        {
+            _ArrowPointer._Arrowpointers[i].SetActive(false);
+        }
+
         if (show)
         {
             _ArrowPointer._Arrowpointers[id].SetActive(true);
