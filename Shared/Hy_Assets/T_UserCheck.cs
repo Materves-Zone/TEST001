@@ -116,7 +116,7 @@ public class T_UserCheck : MonoBehaviour
         if (other.name == "StandAreaTTSPos" && t_TTSTesting.IsTTSTasting)
         {
             Debug.Log("start nb pos guide");
-            t_TTSTesting.TTSPosNbUpdate(2, false);
+            t_TTSTesting.TTSPosNbUpdate(2,false);
             t_TTSTesting.TTSPosNbUpdate(3, true);
             t_TTSTesting.TTSPosNbUpdate(4, true);
         }
@@ -185,10 +185,22 @@ public class T_UserCheck : MonoBehaviour
         if (other.name == "StandAreaAvatarPos" && t_AvatarTesting.IsAvatarTesting)
         {
             Debug.Log("start avatar nb guide");
+            t_AvatarTesting.AvatarPosNbUpdate(2,false);
+            t_AvatarTesting.AvatarPosNbUpdate(3, true);
+            t_AvatarTesting.AvatarPosNbUpdate(4, true);
         }
-        if(other.name == "" && t_AvatarTesting.IsAvatarTesting)
+        if(other.name == "PathNode" && t_AvatarTesting.IsAvatarTesting)
         {
             Debug.Log("show obj avatar nb guide");
+            //t_AvatarTesting.AvatarPosNbUpdate(4, false);
+            //t_AvatarTesting.AvatarPosNbUpdate(5,  true);
+            //t_AvatarTesting.AvatarPosNbUpdate(6, false);
+            //t_AvatarTesting.AvatarPosNbUpdate(7, false);
+            //t_AvatarTesting.AvatarPosNbUpdate(9, false);
+
+            //TESTING ...
+            t_AvatarTesting.AvatarPosNbInit();
+            t_AvatarTesting.AvatarTestingExpStart();
         }
         // 2.avatar testing pos part
         if(other.tag=="Pos" && t_AvatarTesting.IsAvatarTesting)

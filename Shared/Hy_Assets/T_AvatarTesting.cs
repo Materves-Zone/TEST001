@@ -67,7 +67,7 @@ public class T_AvatarTesting : MonoBehaviour
         IsAvatarTesting = false;
         for (int i = 0; i < Pos.Length; i++)
         {
-            Pos[i].GetComponent<T_FlashControl>().IsFlash = false;
+            Pos[i].GetComponent<T_FlashControl>().IsFlash = true;
             Pos[i].SetActive(false);
         }
         _ArrowPointer.ArrowpointersInit();
@@ -76,7 +76,7 @@ public class T_AvatarTesting : MonoBehaviour
     {
         Debug.Log("flash testing");
 
-        AvatarPosNbInit();
+        IsAvatarTesting = true;
 
         _UserCheck.CheckID = 0;
         if (IsOnlyShow)
@@ -95,7 +95,10 @@ public class T_AvatarTesting : MonoBehaviour
             Pos[0].GetComponent<T_FlashControl>().IsFlash = true;
         }
 
+        // Arrow ?
         ArrowpointersControl(0, true);
+        // avatar show
+
     }
     public void AvatarestingPosUpdate(int id)
     {
