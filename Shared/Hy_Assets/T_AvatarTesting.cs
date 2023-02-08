@@ -21,7 +21,7 @@ public class T_AvatarTesting : MonoBehaviour
 
     public T_UserCheck _UserCheck;
     public T_ArrowPointer _ArrowPointer;
-    public T_AvatarControl _AvatarControl;
+    public GameObject T_Avatar;
     public GameObject[] PosNbs;
     public GameObject[] ExpNbs;
     public GameObject[] Pos;
@@ -29,18 +29,20 @@ public class T_AvatarTesting : MonoBehaviour
     public bool IsOnlyShow = false;
     public bool IsAvatarTesting = false;
 
-    // tts nb guide part
+    // avatar nb guide part
     public void AvatarPosNbInit()
     {
         IsAvatarTesting = false;
         PosNbs[0].SetActive(false);
+        T_Avatar.SetActive(false);
     }
     public void AvatarPosNbStart()
     {
         IsAvatarTesting = true;
-        PosNbs[0].SetActive(true);
-        PosNbs[1].SetActive(true);
-        PosNbs[2].SetActive(true);
+
+       PosNbs[0].SetActive(true);
+       PosNbs[1].SetActive(true);
+       PosNbs[2].SetActive(true); 
 
     }
     public void AvatarPosNbUpdate(int id, bool show)
@@ -59,9 +61,10 @@ public class T_AvatarTesting : MonoBehaviour
         AvatarPosNbInit();
         PosNbs[8].GetComponent<ReStart>().Show_Menu();
         PosNbs[8].GetComponent<ReStart>().Hide_Menu();
+        AvatarPosNbStart();
     }
 
-    // tts testing part
+    // avatar testing part
     public void AvatarTestingPosInit()
     {
         IsAvatarTesting = false;
@@ -72,10 +75,11 @@ public class T_AvatarTesting : MonoBehaviour
         }
         _ArrowPointer.ArrowpointersInit();
     }
-    public void TTSTestingPosStart()
+    public void AvatarTestingPosStart()
     {
-        Debug.Log("flash testing");
-
+        Debug.Log("avatar pos testing");
+        AvatarPosNbInit();
+        T_Avatar.SetActive(true);
         IsAvatarTesting = true;
 
         _UserCheck.CheckID = 0;
@@ -97,8 +101,8 @@ public class T_AvatarTesting : MonoBehaviour
 
         // Arrow ?
         ArrowpointersControl(0, true);
-        // avatar show
-
+        // avatar show and move to the pillar
+        AvatarestingPosUpdate(0);
     }
     public void AvatarestingPosUpdate(int id)
     {
@@ -126,6 +130,23 @@ public class T_AvatarTesting : MonoBehaviour
             }
         }
         _ArrowPointer.ArrowpointersUpdate(id);
+
+        if(id == 0)
+        {
+            AvatarPosNbAnimationUpdate("Avatar(Test)", "Step1");
+        }
+        else if(id == 1)
+        {
+            AvatarPosNbAnimationUpdate("Avatar(Test)", "Step2");
+        }
+        else if (id == 2)
+        {
+            AvatarPosNbAnimationUpdate("Avatar(Test)", "Step3");
+        }
+        else if (id == 3)
+        {
+            AvatarPosNbAnimationUpdate("Avatar(Test)", "Step4");
+        }
     }
     public void AvatarestingPosReset()
     {
@@ -133,7 +154,7 @@ public class T_AvatarTesting : MonoBehaviour
         _UserCheck.CheckID = 0;
     }
 
-    // tts nb exp part
+    // avatar nb exp part
     public void AvatarExpNbInit()
     {
         IsAvatarTesting = false;
@@ -166,7 +187,7 @@ public class T_AvatarTesting : MonoBehaviour
         AvatarExpNbStart();
     }
 
-    // tts nb testing part
+    // avatar nb testing part
     public void AvatarTestingExpInit()
     {
         IsAvatarTesting = false;
@@ -219,5 +240,9 @@ public class T_AvatarTesting : MonoBehaviour
         {
             _ArrowPointer._Arrowpointers[id].SetActive(false);
         }
+    }
+    public void AvatarPosNbAnimationUpdate(string objname, string animname)
+    {
+        GameObject.Find(objname).GetComponent<Animator>().Play(animname);
     }
 }

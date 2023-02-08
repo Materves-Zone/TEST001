@@ -188,24 +188,38 @@ public class T_UserCheck : MonoBehaviour
             t_AvatarTesting.AvatarPosNbUpdate(2,false);
             t_AvatarTesting.AvatarPosNbUpdate(3, true);
             t_AvatarTesting.AvatarPosNbUpdate(4, true);
+            t_AvatarTesting.AvatarPosNbAnimationUpdate("NbPosAvatar", "NbAvatarFindPosInit");
         }
-        if(other.name == "PathNode" && t_AvatarTesting.IsAvatarTesting)
+        if(other.name == "NbPosAvatar" && t_AvatarTesting.IsAvatarTesting)
         {
             Debug.Log("show obj avatar nb guide");
-            //t_AvatarTesting.AvatarPosNbUpdate(4, false);
-            //t_AvatarTesting.AvatarPosNbUpdate(5,  true);
-            //t_AvatarTesting.AvatarPosNbUpdate(6, false);
-            //t_AvatarTesting.AvatarPosNbUpdate(7, false);
-            //t_AvatarTesting.AvatarPosNbUpdate(9, false);
-
-            //TESTING ...
-            t_AvatarTesting.AvatarPosNbInit();
-            t_AvatarTesting.AvatarTestingExpStart();
+            t_AvatarTesting.AvatarPosNbAnimationUpdate("NbPosAvatar", "NbAvatarFindPos");
+            t_AvatarTesting.AvatarPosNbUpdate(5,  true);
+        }
+        if(other.name == "NbPosAvatarPillar" && t_AvatarTesting.IsAvatarTesting)
+        {
+            Debug.Log("1");
+            t_AvatarTesting.AvatarPosNbUpdate(5, false);
+            Debug.Log("2");
+            t_AvatarTesting.AvatarPosNbUpdate(6, true);
+            Debug.Log("3");
+            t_AvatarTesting.AvatarPosNbUpdate(10, false);
         }
         // 2.avatar testing pos part
-        if(other.tag=="Pos" && t_AvatarTesting.IsAvatarTesting)
+        if(other.tag== "Pos" && t_AvatarTesting.IsAvatarTesting)
         {
-
+            if (CheckID == other.GetComponent<T_FlashControl>().PillarID && CheckID < t_TTSTesting.Pos.Length - 1)
+            {
+                CheckID++;
+                t_AvatarTesting.AvatarestingPosUpdate(CheckID);
+            }
+            if (CheckID == other.GetComponent<T_FlashControl>().PillarID && CheckID == t_TTSTesting.Pos.Length - 1)
+            {
+                Debug.Log("testing flash successfully!");
+                t_AvatarTesting.AvatarestingPosUpdate(999);
+                CheckID = 999;
+                // start to nb exp guide part
+            }
         }
         // 3.avatar nb exp part
         if(other.name=="StandAreaAvatarExp" && t_AvatarTesting.IsAvatarTesting)
