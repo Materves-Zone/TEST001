@@ -34,7 +34,9 @@ public class T_AvatarTesting : MonoBehaviour
     {
         IsAvatarTesting = false;
         PosNbs[0].SetActive(false);
+        ArrowpointersControl(0, false);
         T_Avatar.SetActive(false);
+        
     }
     public void AvatarPosNbStart()
     {
@@ -63,6 +65,11 @@ public class T_AvatarTesting : MonoBehaviour
         PosNbs[8].GetComponent<ReStart>().Hide_Menu();
         AvatarPosNbStart();
     }
+    public void AvatarPosNbGuideTutorial()
+    {
+        AvatarPosNbUpdate(5, true);
+        AvatarPosNbAnimationUpdate("NbPosAvatar", "NbAvatarFindPos");
+    }
 
     // avatar testing part
     public void AvatarTestingPosInit()
@@ -73,13 +80,14 @@ public class T_AvatarTesting : MonoBehaviour
             Pos[i].GetComponent<T_FlashControl>().IsFlash = true;
             Pos[i].SetActive(false);
         }
-        _ArrowPointer.ArrowpointersInit();
+        //_ArrowPointer.ArrowpointersInit();
     }
     public void AvatarTestingPosStart()
     {
         Debug.Log("avatar pos testing");
         AvatarPosNbInit();
         T_Avatar.SetActive(true);
+        ArrowpointersControl(0, true);
         IsAvatarTesting = true;
 
         _UserCheck.CheckID = 0;
@@ -100,7 +108,7 @@ public class T_AvatarTesting : MonoBehaviour
         }
 
         // Arrow ?
-        ArrowpointersControl(0, true);
+        //ArrowpointersControl(0, true);
         // avatar show and move to the pillar
         AvatarestingPosUpdate(0);
     }
@@ -129,7 +137,7 @@ public class T_AvatarTesting : MonoBehaviour
                 }
             }
         }
-        _ArrowPointer.ArrowpointersUpdate(id);
+        //_ArrowPointer.ArrowpointersUpdate(id);
 
         if(id == 0)
         {
@@ -160,13 +168,22 @@ public class T_AvatarTesting : MonoBehaviour
         IsAvatarTesting = false;
         ExpNbs[0].SetActive(false);
     }
-    public void AvatarExpNbStart()
+    public void AvatarExpNbStart(int id)
     {
         IsAvatarTesting = true;
-        ExpNbs[0].SetActive(true);
-        ExpNbs[1].SetActive(true);
-        ExpNbs[2].SetActive(true);
-        ExpNbs[3].SetActive(false);
+     
+        if(id == 0)
+        {
+            ExpNbs[0].SetActive(true);
+            ExpNbs[10].SetActive(true);
+        }
+        else if(id == 1)
+        {
+            ExpNbs[0].SetActive(true);
+            ExpNbs[1].SetActive(true);
+            ExpNbs[2].SetActive(true);
+            ExpNbs[10].SetActive(false);
+        }
     }
     public void AvatarExpNbUpdate(int id, bool show)
     {
@@ -184,12 +201,19 @@ public class T_AvatarTesting : MonoBehaviour
         AvatarExpNbInit();
         ExpNbs[8].GetComponent<ReStart>().Show_Menu();
         ExpNbs[8].GetComponent<ReStart>().Hide_Menu();
-        AvatarExpNbStart();
+        AvatarExpNbStart(1);
+    }
+    public void AvatarExpNbGuideTutorial()
+    {
+        AvatarPosNbAnimationUpdate("NbAvatarExp", "NbAvatarFindPos");
+        AvatarExpNbUpdate(11, true);
     }
 
     // avatar nb testing part
     public void AvatarTestingExpInit()
     {
+        T_Avatar.SetActive(false);
+        ArrowpointersControl(0, false);
         IsAvatarTesting = false;
         for (int i = 0; i < ExpObjs.Length; i++)
         {
@@ -210,7 +234,11 @@ public class T_AvatarTesting : MonoBehaviour
         }
         AvatarExpNbInit();
         IsAvatarTesting = true;
-        ArrowpointersControl(4, true);
+        //ArrowpointersControl(4, true);
+        T_Avatar.SetActive(true);
+        ArrowpointersControl(0, true);
+        AvatarPosNbAnimationUpdate("Avatar(Test)","Step8");
+        AvatarPosNbAnimationUpdate("Avatar(Test)", "Step5");
     }
     public void AvatarTestingExpUpdate(int id)
     {

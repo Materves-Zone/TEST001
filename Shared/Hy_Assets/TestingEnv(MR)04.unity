@@ -2333,7 +2333,18 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 087b16002c2b0b445baa3ed3beae44a9, type: 2}
   OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2542629419841013891}
+        m_MethodName: AvatarExpNbStart
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Events:
   - Event:
       m_PersistentCalls:
@@ -2961,7 +2972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430327154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.69125, y: -0.026123047, z: -6.314961}
+  m_LocalPosition: {x: -2.73, y: -0.026123047, z: 3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1739236629}
@@ -3765,7 +3776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565351560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.93, y: 1, z: -1.32}
+  m_LocalPosition: {x: -10.26, y: 1, z: 8.18}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8261,7 +8272,7 @@ MonoBehaviour:
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
-  DirectionalTarget: {fileID: 2649104497091339135}
+  DirectionalTarget: {fileID: 565351565}
   MinIndicatorScale: 0.05
   MaxIndicatorScale: 0.2
   VisibilityScaleFactor: 0.8
@@ -12773,7 +12784,7 @@ GameObject:
   - component: {fileID: 1739236631}
   - component: {fileID: 1739236630}
   m_Layer: 0
-  m_Name: NbAvatarPillar
+  m_Name: NbAvatarPillarExp
   m_TagString: Pos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12787,7 +12798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739236628}
   m_LocalRotation: {x: -0.7071068, y: 0.000000029802322, z: 0.000000029802322, w: 0.7071068}
-  m_LocalPosition: {x: -1.05, y: -1.35, z: -0.06}
+  m_LocalPosition: {x: -1.9, y: -1.35, z: -0.06}
   m_LocalScale: {x: 99.99997, y: 100.000046, z: 100.000046}
   m_Children: []
   m_Father: {fileID: 430327155}
@@ -14277,7 +14288,7 @@ GameObject:
   - component: {fileID: 1986609196}
   - component: {fileID: 1986609195}
   m_Layer: 0
-  m_Name: NbAvatar
+  m_Name: NbAvatarExp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14291,7 +14302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986609193}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.25, y: 1, z: 0}
+  m_LocalPosition: {x: 1.01, y: 0.07, z: 0.038}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 430327155}
@@ -17067,6 +17078,17 @@ MonoBehaviour:
       - m_Target: {fileID: 256206266961471958}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2542629419841013891}
+        m_MethodName: AvatarPosNbGuideTutorial
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -22044,7 +22066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &256206268817474504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22316,7 +22338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7685898322038534164}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.9499998, y: -2.15, z: 0.2800002}
+  m_LocalPosition: {x: -1.86, y: -2.15, z: 0.9}
   m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children: []
   m_Father: {fileID: 6926348543809973695}
@@ -29870,6 +29892,7 @@ MonoBehaviour:
   - {fileID: 6926348545096156405}
   - {fileID: 6926348545156725537}
   - {fileID: 967769142}
+  - {fileID: 6926348544966337485}
   Pos:
   - {fileID: 703143065}
   - {fileID: 1954114252}
@@ -40877,6 +40900,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -5815203127968956406, guid: 63161fc7165439c43af4248b9cad54df, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 6916450072683781630, guid: 63161fc7165439c43af4248b9cad54df, type: 2}
+    value: {fileID: 6926348545215363905}
   m_ExposedReferences:
     m_References: []
 --- !u!95 &6926348543721220244
@@ -40976,7 +41001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6926348543809973695
 Transform:
   m_ObjectHideFlags: 0
@@ -41932,8 +41957,8 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: FlashPosNbReset
+      - m_Target: {fileID: 2542629419841013891}
+        m_MethodName: AvatarExpNbReset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -42494,7 +42519,7 @@ MonoBehaviour:
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
-  DirectionalTarget: {fileID: 0}
+  DirectionalTarget: {fileID: 1986609194}
   MinIndicatorScale: 0.05
   MaxIndicatorScale: 0.2
   VisibilityScaleFactor: 0.8
@@ -43284,7 +43309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6926348544704464652
 Transform:
   m_ObjectHideFlags: 0
@@ -44101,6 +44126,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2542629419841013891}
+        m_MethodName: AvatarExpNbGuideTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   Events:
   - Event:
       m_PersistentCalls:
@@ -44833,8 +44869,8 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: FlashTestingPosStart
+      - m_Target: {fileID: 2542629419841013891}
+        m_MethodName: AvatarTestingExpStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -45659,8 +45695,9 @@ MonoBehaviour:
   - {fileID: 6926348544966337485}
   - {fileID: 6926348545413398476}
   - {fileID: 6926348545156725537}
+  - {fileID: 967769142}
+  - {fileID: 430327154}
   ShowMenu:
-  - {fileID: 6926348544234436433}
   - {fileID: 6926348543809973688}
   - {fileID: 6926348544493057764}
 --- !u!4 &6926348545096156404

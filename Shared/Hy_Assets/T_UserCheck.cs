@@ -185,17 +185,18 @@ public class T_UserCheck : MonoBehaviour
         if (other.name == "StandAreaAvatarPos" && t_AvatarTesting.IsAvatarTesting)
         {
             Debug.Log("start avatar nb guide");
-            t_AvatarTesting.AvatarPosNbUpdate(2,false);
-            t_AvatarTesting.AvatarPosNbUpdate(3, true);
-            t_AvatarTesting.AvatarPosNbUpdate(4, true);
+            t_AvatarTesting.AvatarPosNbUpdate(1, false);
+            t_AvatarTesting.AvatarPosNbUpdate(2, false);
+            t_AvatarTesting.AvatarPosNbUpdate(3,  true);
+            t_AvatarTesting.AvatarPosNbUpdate(4,  true);
             t_AvatarTesting.AvatarPosNbAnimationUpdate("NbPosAvatar", "NbAvatarFindPosInit");
         }
-        if(other.name == "NbPosAvatar" && t_AvatarTesting.IsAvatarTesting)
-        {
-            Debug.Log("show obj avatar nb guide");
-            t_AvatarTesting.AvatarPosNbAnimationUpdate("NbPosAvatar", "NbAvatarFindPos");
-            t_AvatarTesting.AvatarPosNbUpdate(5,  true);
-        }
+        //if(other.name == "NbPosAvatar" && t_AvatarTesting.IsAvatarTesting)
+        //{
+        //    Debug.Log("show obj avatar nb guide");
+        //    t_AvatarTesting.AvatarPosNbAnimationUpdate("NbPosAvatar", "NbAvatarFindPos");
+        //    t_AvatarTesting.AvatarPosNbUpdate(5,  true);
+        //}
         if(other.name == "NbPosAvatarPillar" && t_AvatarTesting.IsAvatarTesting)
         {
             Debug.Log("1");
@@ -219,17 +220,38 @@ public class T_UserCheck : MonoBehaviour
                 t_AvatarTesting.AvatarestingPosUpdate(999);
                 CheckID = 999;
                 // start to nb exp guide part
+                t_AvatarTesting.AvatarExpNbInit();
+                t_AvatarTesting.AvatarExpNbStart(0);
+                //t_AvatarTesting.T_Avatar.SetActive(false);
+                t_AvatarTesting.AvatarTestingExpInit();
             }
         }
         // 3.avatar nb exp part
-        if(other.name=="StandAreaAvatarExp" && t_AvatarTesting.IsAvatarTesting)
+        if(other.name== "StandAreaAvatarExp" && t_AvatarTesting.IsAvatarTesting)
         {
-
+            t_AvatarTesting.AvatarExpNbUpdate(1, false);
+            t_AvatarTesting.AvatarExpNbUpdate(2, false);
+            t_AvatarTesting.AvatarExpNbUpdate(3,  true);
+            t_AvatarTesting.AvatarExpNbUpdate(4,  true);
+            t_AvatarTesting.AvatarExpNbUpdate(5, false);
+            t_AvatarTesting.AvatarPosNbAnimationUpdate("NbAvatarExp", "NbAvatarFindPosInit");
+        }
+        if(other.name== "NbAvatarPillarExp" && t_AvatarTesting.IsAvatarTesting)
+        {
+            t_AvatarTesting.AvatarExpNbUpdate(5, true);
+            t_AvatarTesting.AvatarExpNbUpdate(9, false);
         }
         // 4.avatar testing exp
         if(other.tag=="Exp" && t_AvatarTesting.IsAvatarTesting)
         {
-
+            if(other.name ==  "PartA")
+            {
+                t_AvatarTesting.AvatarPosNbAnimationUpdate("Avatar(Test)", "Step6");
+            }
+            else if(other.name == "PartB")
+            {
+                t_AvatarTesting.AvatarPosNbAnimationUpdate("Avatar(Test)", "Step7");
+            }
         }
     }
 }
