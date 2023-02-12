@@ -27,7 +27,7 @@ public class T_ArrowPointer : MonoBehaviour
     }
     public void ArrowpointersStart()
     {
-
+        _Arrowpointers[0].SetActive(true);
     }
     public void ArrowpointersUpdate(int id)
     {
