@@ -227,10 +227,12 @@ public class F_AvatarTesting : MonoBehaviour
         {
             case 0:
                 AvatarAnimUpdate(5);
+                t_ArrowPointer.ArrowpointersUpdate(2);
                 break;
 
             case 1:
                 AvatarAnimUpdate(6);
+                t_ArrowPointer.ArrowpointersUpdate(1);
                 break;
         }
     }
