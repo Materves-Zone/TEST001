@@ -22,6 +22,7 @@ public class F_StaffSettings : MonoBehaviour
     public GameObject TragObj;
     public GameObject UIObjs;
     public GameObject[] ShowHideObjs;
+    public bool IsStaffMode = false;
     private int ClickIDEvent;
     private int ClickIDUI;
 
@@ -31,6 +32,7 @@ public class F_StaffSettings : MonoBehaviour
     public void AllResetingInit()
     {
         UIObjs.SetActive(false);
+        IsStaffMode = true;
     }
     public void AllReseting()
     {
@@ -65,6 +67,7 @@ public class F_StaffSettings : MonoBehaviour
         switch (ClickIDEvent)
         {
             case 2:
+                IsStaffMode = true;
                 AllReseting();
                 Drag(1);
                 // Show
@@ -84,6 +87,7 @@ public class F_StaffSettings : MonoBehaviour
                 }
                 Drag(0);
                 AllReseting();
+                IsStaffMode = false;
                 break;
         }
     }
