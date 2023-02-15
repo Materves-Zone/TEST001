@@ -30,12 +30,11 @@ public class F_StaffSettings : MonoBehaviour
     /// </summary>
     public void AllResetingInit()
     {
-        Drag(0);
         UIObjs.SetActive(false);
     }
     public void AllReseting()
     {
-        Debug.Log("All Reset!");
+        //Debug.Log("All Reset!");
         f_FlashTesting.AllTestingReset();
         f_TTSTesting.AllTestingReset();
         f_AvatarTesting.AllTestingReset();
@@ -50,10 +49,12 @@ public class F_StaffSettings : MonoBehaviour
         {
             case 0:
                 TragObj.GetComponent<Collider>().enabled = false;
+                TragObj.GetComponent<MeshRenderer>().enabled = false;
                 break;
 
             case 1:
                 TragObj.GetComponent<Collider>().enabled = true;
+                TragObj.GetComponent<MeshRenderer>().enabled = true;
                 break;
         }
     }
@@ -70,6 +71,7 @@ public class F_StaffSettings : MonoBehaviour
                 for (int i = 0; i < ShowHideObjs.Length; i++)
                 {
                     ShowHideObjs[i].SetActive(true);
+                    ClickIDEvent = 0;
                 }
                 // Drag enable ...
                 break;
@@ -79,7 +81,6 @@ public class F_StaffSettings : MonoBehaviour
                 for (int i = 0; i < ShowHideObjs.Length; i++)
                 {
                     ShowHideObjs[i].SetActive(false);
-                    ClickIDEvent = 0;
                 }
                 Drag(0);
                 AllReseting();
