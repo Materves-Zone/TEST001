@@ -7,7 +7,7 @@ public class F_StaffSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AllResetingInit();
     }
 
     // Update is called once per frame
@@ -19,22 +19,53 @@ public class F_StaffSettings : MonoBehaviour
     public F_FlashTesting f_FlashTesting;
     public F_TTSTesting f_TTSTesting;
     public F_AvatarTesting f_AvatarTesting;
+    public GameObject TragObj;
+    public GameObject UIObjs;
     public GameObject[] ShowHideObjs;
-    private int ClickID;
+    private int ClickIDEvent;
+    private int ClickIDUI;
 
+    /// <summary>
+    /// settings
+    /// </summary>
+    public void AllResetingInit()
+    {
+        Drag(0);
+        UIObjs.SetActive(false);
+    }
     public void AllReseting()
     {
+        Debug.Log("All Reset!");
         f_FlashTesting.AllTestingReset();
         f_TTSTesting.AllTestingReset();
         f_AvatarTesting.AllTestingReset();
     }
 
-    public void ShowHideSettings ()
+    /// <summary>
+    /// function
+    /// </summary>
+    public void Drag(int id)
     {
-        switch (ClickID)
+        switch (id)
         {
             case 0:
-                ClickID++;
+                TragObj.GetComponent<Collider>().enabled = false;
+                break;
+
+            case 1:
+                TragObj.GetComponent<Collider>().enabled = true;
+                break;
+        }
+    }
+    public void ShowHideSettings ()
+    {
+        ClickIDEvent++;
+
+        switch (ClickIDEvent)
+        {
+            case 2:
+                AllReseting();
+                Drag(1);
                 // Show
                 for (int i = 0; i < ShowHideObjs.Length; i++)
                 {
@@ -48,9 +79,32 @@ public class F_StaffSettings : MonoBehaviour
                 for (int i = 0; i < ShowHideObjs.Length; i++)
                 {
                     ShowHideObjs[i].SetActive(false);
+                    ClickIDEvent = 0;
                 }
-                // Drag isable ...
+                Drag(0);
+                AllReseting();
                 break;
         }
+    }
+
+    /// <summary>
+    /// UI
+    /// </summary>
+    public void ShowHideUI()
+    {
+        //ClickIDEvent++;
+
+        //switch (ClickIDUI)
+        //{
+        //    case 1:
+        //        UIObjs.SetActive(true);
+        //        break;
+
+        //    case 2:
+        //        UIObjs.SetActive(false);
+        //        break;
+        //}
+
+        UIObjs.SetActive(true);
     }
 }

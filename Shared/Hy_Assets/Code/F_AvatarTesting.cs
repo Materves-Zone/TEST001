@@ -103,6 +103,7 @@ public class F_AvatarTesting : MonoBehaviour
         for (int i = 0; i < PosPosition.Length; i++)
         {
             PosPosition[i].SetActive(true);
+            PosPosition[i].GetComponent<MeshRenderer>().enabled = false;
         }
         // avatar show
         Avatar.SetActive(true);
