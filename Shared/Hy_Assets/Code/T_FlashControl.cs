@@ -21,11 +21,14 @@ public class T_FlashControl : MonoBehaviour
     /// </summary>
     public bool IsFlash;
     public float FlashTime;
+    public float FlashTotalTime;
     public float FlashIntensity;
     public Color _Color;
     public int PillarID;
     private float EmissionIntensity;
     private Renderer matrenderer;
+    private float Temp;
+    private int TempID;
 
     public void MaterialFlashInit()
     {
@@ -33,20 +36,50 @@ public class T_FlashControl : MonoBehaviour
     }
     public void MaterialFlashUpdate()
     {
-        if (IsFlash)
-        {
-            EmissionIntensity = Mathf.Lerp(EmissionIntensity, FlashIntensity, FlashTime);
-            matrenderer.material.SetColor("_EmissionColor", _Color * EmissionIntensity);
+        //if (IsFlash)
+        //{
+        //    EmissionIntensity = Mathf.Lerp(EmissionIntensity, FlashIntensity, FlashTime);
+        //    matrenderer.material.SetColor("_EmissionColor", _Color * EmissionIntensity);
 
-            if (EmissionIntensity > FlashIntensity - 0.01f)
+        //    if (EmissionIntensity > FlashIntensity - 0.01f)
+        //    {
+        //        EmissionIntensity = 0;
+        //    }
+        //}
+        //else
+        //{
+        //    EmissionIntensity = 0;
+        //    this.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", _Color * EmissionIntensity);
+        //}
+
+        if(IsFlash)
+        {
+            Temp++;
+            if(Temp >= FlashTotalTime/0.02f)
             {
-                EmissionIntensity = 0;
+                TempID++;
+
+                if(TempID == 1)
+                {
+                    EmissionIntensity = 0;
+                    matrenderer.material.SetColor("_EmissionColor", _Color * EmissionIntensity);
+                }
+                else if(TempID == 2)
+                {
+                    EmissionIntensity = 1;
+                    matrenderer.material.SetColor("_EmissionColor", _Color * EmissionIntensity);
+                    TempID = 0;
+                }
+
+                Temp = 0;
             }
         }
         else
         {
+            TempID = 0;
             EmissionIntensity = 0;
-            this.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", _Color * EmissionIntensity);
+            matrenderer.material.SetColor("_EmissionColor", _Color * EmissionIntensity);
+            Temp = 0;
         }
     }
 }

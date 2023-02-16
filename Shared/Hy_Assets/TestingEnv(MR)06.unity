@@ -1632,6 +1632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 0
   FlashIntensity: 0.5
   _Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   PillarID: 0
@@ -1743,6 +1744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 0
   FlashIntensity: 0.5
   _Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   PillarID: 0
@@ -5509,6 +5511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 1
   FlashIntensity: 0.5
   _Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   PillarID: 0
@@ -8709,6 +8712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 0
   FlashIntensity: 0.5
   _Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   PillarID: 0
@@ -15401,6 +15405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 0
   FlashIntensity: 0.5
   _Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   PillarID: 0
@@ -28569,6 +28574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 1
   FlashIntensity: 0.5
   _Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   PillarID: 0
@@ -32090,8 +32096,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 1
   FlashTime: 0.015
+  FlashTotalTime: 1
   FlashIntensity: 0.5
-  _Color: {r: 0, g: 0.9053459, b: 1, a: 0}
+  _Color: {r: 0.50609684, g: 1, b: 0.4481132, a: 0}
   PillarID: 0
 --- !u!1 &2729449122935099433
 GameObject:
@@ -38132,8 +38139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 1
   FlashIntensity: 0.5
-  _Color: {r: 0, g: 0.5882353, b: 1, a: 0}
+  _Color: {r: 0.3254717, g: 1, b: 0.42770615, a: 0}
   PillarID: 1
 --- !u!1 &3425077872806902213
 GameObject:
@@ -38169,8 +38177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 1
   FlashIntensity: 0.5
-  _Color: {r: 0, g: 0.5882353, b: 1, a: 0}
+  _Color: {r: 0.3254717, g: 1, b: 0.42770615, a: 0}
   PillarID: 0
 --- !u!1 &3425077873436801552
 GameObject:
@@ -38206,8 +38215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 1
   FlashIntensity: 0.5
-  _Color: {r: 0, g: 0.5882353, b: 1, a: 0}
+  _Color: {r: 0.3254717, g: 1, b: 0.42770615, a: 0}
   PillarID: 3
 --- !u!1 &3425077873576332310
 GameObject:
@@ -38243,8 +38253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 0
   FlashTime: 0.015
+  FlashTotalTime: 1
   FlashIntensity: 0.5
-  _Color: {r: 0, g: 0.5882353, b: 1, a: 0}
+  _Color: {r: 0.3254717, g: 1, b: 0.42770615, a: 0}
   PillarID: 2
 --- !u!33 &3597528362132042830
 MeshFilter:
@@ -59810,7 +59821,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!65 &7326981818765253372
 BoxCollider:
@@ -59853,8 +59864,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFlash: 1
   FlashTime: 0.015
+  FlashTotalTime: 1
   FlashIntensity: 0.5
-  _Color: {r: 0, g: 0.5882353, b: 1, a: 0}
+  _Color: {r: 0.561468, g: 1, b: 0.5518868, a: 0}
   PillarID: 0
 --- !u!95 &7326981818774355228
 Animator:
