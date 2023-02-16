@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
 
 public class F_StaffSettings : MonoBehaviour
@@ -21,6 +20,7 @@ public class F_StaffSettings : MonoBehaviour
     public F_AvatarTesting f_AvatarTesting;
     public GameObject TragObj;
     public GameObject UIObjs;
+    public ObjectManipulator objectManipulator;
     public GameObject[] ShowHideObjs;
     public bool IsStaffMode = false;
     private int ClickIDEvent;
@@ -52,11 +52,13 @@ public class F_StaffSettings : MonoBehaviour
             case 0:
                 TragObj.GetComponent<Collider>().enabled = false;
                 TragObj.GetComponent<MeshRenderer>().enabled = false;
+                objectManipulator.enabled = false;
                 break;
 
             case 1:
                 TragObj.GetComponent<Collider>().enabled = true;
                 TragObj.GetComponent<MeshRenderer>().enabled = true;
+                objectManipulator.enabled = true;
                 break;
         }
     }
