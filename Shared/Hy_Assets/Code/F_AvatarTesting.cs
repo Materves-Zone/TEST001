@@ -7,7 +7,7 @@ public class F_AvatarTesting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //AvatarAudioInit();
+        AvatarAudioInit();
         NbAvatarPosInit();
         TestingAvatarPosInit();
         NbAvatarExpInit();
@@ -108,7 +108,7 @@ public class F_AvatarTesting : MonoBehaviour
         // avatar show
         Avatar.SetActive(true);
         // avatar tts show
-        //AvatarAudioUpdate(0);
+        AvatarAudioUpdate(0);
         // avatar animation
         AvatarAnimUpdate(0);
         // arrow show ...
@@ -117,7 +117,7 @@ public class F_AvatarTesting : MonoBehaviour
     public void TestingAvatarPosUpdate(int id)
     {
         // avatar
-        //AvatarAudioUpdate(id);
+        AvatarAudioUpdate(id);
         // avatar animation
         AvatarAnimUpdate(id);
         // arrow show ...
