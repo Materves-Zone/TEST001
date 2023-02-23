@@ -40,6 +40,7 @@ public class F_AvatarTesting : MonoBehaviour
     {
         IsAvatarTesting = false;
         NbAvatarPosObjs[0].SetActive(false);
+        NbAvatarPosObjs[10].name = "NbPosAvatar";
         Avatar.SetActive(false);
     }
     public void NbAvatarPosStart()
@@ -48,6 +49,7 @@ public class F_AvatarTesting : MonoBehaviour
         NbAvatarPosObjs[0].SetActive(true);
         NbAvatarPosObjs[1].SetActive(true);
         NbAvatarPosObjs[2].SetActive(true);
+        NbAvatarPosObjs[10].name = "NbPosAvatar";
     }
     public void NbAvatarPosUpdate(int eventid)
     {
@@ -321,6 +323,7 @@ public class F_AvatarTesting : MonoBehaviour
 
             case 1:
                 NBanimators[0].Play("NbAvatarFindPos");
+                NbAvatarPosObjs[10].name = "NbPosAvatar1";
                 break;
 
             case 2:
@@ -329,6 +332,14 @@ public class F_AvatarTesting : MonoBehaviour
 
             case 3:
                 NBanimators[1].Play("NbAvatarFindPos");
+                break;
+
+            case 4:
+                NBanimators[0].Play("NbAvatarFindPos1");
+                break;
+
+            case 5:
+                NBanimators[1].Play("NbAvatarFindPos1");
                 break;
         }
     }

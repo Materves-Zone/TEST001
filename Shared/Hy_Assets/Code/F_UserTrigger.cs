@@ -132,6 +132,12 @@ public class F_UserTrigger : MonoBehaviour
 
                     case "NbPosAvatar":
                         f_AvatarTesting.NbAvatarAnimUpdate(1);
+                        other.name = "NbPosAvatar1";
+                        break;
+
+                    case "NbPosAvatar1":
+                        f_AvatarTesting.NbAvatarAnimUpdate(4);
+                        other.name = "NbPosAvatar2";
                         break;
 
                     case "NbPosAvatarPillar":
