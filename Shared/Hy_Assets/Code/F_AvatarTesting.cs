@@ -76,6 +76,8 @@ public class F_AvatarTesting : MonoBehaviour
             case 3:
                 NbAvatarAnimUpdate(4);
                 NBanimators[0].name = "NbPosAvatar2";
+                NbAvatarPosObjs[8].SetActive(true);
+                Debug.Log("~~~1");
                 break;
         }
     }
@@ -202,7 +204,8 @@ public class F_AvatarTesting : MonoBehaviour
             case 3:
                 NbAvatarAnimUpdate(5);
                 NBanimators[1].name = "NbExpAvatar2";
-                //Debug.Log("222");
+                NbAvatarExpObjs[9].SetActive(true);
+                Debug.Log("222");
                 break;
         }
     }
