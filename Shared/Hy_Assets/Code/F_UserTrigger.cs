@@ -131,13 +131,15 @@ public class F_UserTrigger : MonoBehaviour
                         break;
 
                     case "NbPosAvatar":
-                        f_AvatarTesting.NbAvatarAnimUpdate(1);
-                        other.name = "NbPosAvatar1";
+                        //f_AvatarTesting.NbAvatarAnimUpdate(1);
+                        //other.name = "NbPosAvatar1";
+                        f_AvatarTesting.NbAvatarPosUpdate(2);
                         break;
 
                     case "NbPosAvatar1":
-                        f_AvatarTesting.NbAvatarAnimUpdate(4);
-                        other.name = "NbPosAvatar2";
+                        //f_AvatarTesting.NbAvatarAnimUpdate(4);
+                        //other.name = "NbPosAvatar99";
+                        f_AvatarTesting.NbAvatarPosUpdate(3);
                         break;
 
                     case "NbPosAvatarPillar":
@@ -149,11 +151,14 @@ public class F_UserTrigger : MonoBehaviour
                         break;
 
                     case "NbExpAvatar":
-                        f_AvatarTesting.NbAvatarAnimUpdate(3);
+                        f_AvatarTesting.NbAvatarExpUpdate(2);
+                        break;
+
+                    case "NbExpAvatar1":
+                        f_AvatarTesting.NbAvatarExpUpdate(3);
                         break;
 
                     case "NbExpAvatarPillar":
-                        Debug.Log("1");
                         f_AvatarTesting.NbAvatarExpUpdate(1);
                         break;
                 }

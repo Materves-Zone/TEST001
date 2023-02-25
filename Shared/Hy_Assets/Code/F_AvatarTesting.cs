@@ -40,7 +40,7 @@ public class F_AvatarTesting : MonoBehaviour
     {
         IsAvatarTesting = false;
         NbAvatarPosObjs[0].SetActive(false);
-        NbAvatarPosObjs[10].name = "NbPosAvatar";
+        NBanimators[0].name = "NbPosAvatar";
         Avatar.SetActive(false);
     }
     public void NbAvatarPosStart()
@@ -49,7 +49,7 @@ public class F_AvatarTesting : MonoBehaviour
         NbAvatarPosObjs[0].SetActive(true);
         NbAvatarPosObjs[1].SetActive(true);
         NbAvatarPosObjs[2].SetActive(true);
-        NbAvatarPosObjs[10].name = "NbPosAvatar";
+        NBanimators[0].name = "NbPosAvatar";
     }
     public void NbAvatarPosUpdate(int eventid)
     {
@@ -67,7 +67,15 @@ public class F_AvatarTesting : MonoBehaviour
                 NbAvatarPosObjs[6].SetActive(true);
                 NbAvatarPosObjs[7].SetActive(false);
                 NbAvatarPosObjs[8].SetActive(false);
+                //NbAvatarAnimUpdate(1);
+                break;
+            case 2:
                 NbAvatarAnimUpdate(1);
+                NBanimators[0].name = "NbPosAvatar1";
+                break;
+            case 3:
+                NbAvatarAnimUpdate(4);
+                NBanimators[0].name = "NbPosAvatar2";
                 break;
         }
     }
@@ -139,6 +147,7 @@ public class F_AvatarTesting : MonoBehaviour
     public void NbAvatarExpInit()
     {
         IsAvatarTesting = false;
+        NBanimators[1].name = "NbExpAvatar";
         NbAvatarExpObjs[0].SetActive(false);
     }
     public void NbAvatarExpStart(int id)
@@ -161,6 +170,7 @@ public class F_AvatarTesting : MonoBehaviour
                 break;
         }
         t_ArrowPointer.ArrowpointersInit();
+        NBanimators[1].name = "NbExpAvatar";
     }
     public void NbAvatarExpUpdate(int eventid)
     {
@@ -179,8 +189,20 @@ public class F_AvatarTesting : MonoBehaviour
                 NbAvatarExpObjs[6].SetActive(true);
                 NbAvatarExpObjs[8].SetActive(false);
                 NbAvatarExpObjs[9].SetActive(false);
+                //NbAvatarAnimUpdate(3);
+                //Debug.Log("2");
+                break;
+
+            case 2:
                 NbAvatarAnimUpdate(3);
-                Debug.Log("2");
+                NBanimators[1].name = "NbExpAvatar1";
+                //Debug.Log("111");
+                break;
+
+            case 3:
+                NbAvatarAnimUpdate(5);
+                NBanimators[1].name = "NbExpAvatar2";
+                //Debug.Log("222");
                 break;
         }
     }
@@ -323,7 +345,7 @@ public class F_AvatarTesting : MonoBehaviour
 
             case 1:
                 NBanimators[0].Play("NbAvatarFindPos");
-                NbAvatarPosObjs[10].name = "NbPosAvatar1";
+                NBanimators[0].name = "NbPosAvatar1";
                 break;
 
             case 2:
@@ -332,6 +354,7 @@ public class F_AvatarTesting : MonoBehaviour
 
             case 3:
                 NBanimators[1].Play("NbAvatarFindPos");
+                NBanimators[1].name = "NbExpAvatar1";
                 break;
 
             case 4:
@@ -339,7 +362,7 @@ public class F_AvatarTesting : MonoBehaviour
                 break;
 
             case 5:
-                NBanimators[1].Play("NbAvatarFindPos1");
+                NBanimators[1].Play("NbAvatarFindPos2");
                 break;
         }
     }
